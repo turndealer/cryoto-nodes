@@ -19,7 +19,7 @@ wget https://github.com/binance-chain/bsc/releases/download/v1.1.1/geth_linux
 chmod +x geth_linux
 ```
 
-# Create `start.sh` File.
+# Create `start.sh` and `console.sh`
 ```
 echo "./geth_linux --config ./config.toml --datadir ./mainnet --cache 18000 --rpc.allow-unprotected-txs --txlookuplimit 0 --http --maxpeers 100 --ws --syncmode=snap --snapshot=false" > start.sh
 chmod +x start.sh
@@ -74,4 +74,9 @@ systemctl start geth
 # Show logs
 ```
 tail -f /home/geth/mainnet/bsc.log
+```
+
+# Check info of node
+```
+./console.sh
 ```
