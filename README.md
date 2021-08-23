@@ -23,6 +23,9 @@ chmod +x geth_linux
 ```
 echo "./geth_linux --config ./config.toml --datadir ./mainnet --cache 18000 --rpc.allow-unprotected-txs --txlookuplimit 0 --http --maxpeers 100 --ws --syncmode=snap --snapshot=false" > start.sh
 chmod +x start.sh
+
+echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
+chmod +x console.sh
 ```
 
 # Install Unzip
