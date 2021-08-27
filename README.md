@@ -135,7 +135,7 @@ sudo sh -c "echo -n 'DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ:' >> /etc/nginx/.htpasswd"
 
 sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
 
-password for nginx=RMXyS4pBHGNtWY-t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
+password for nginx=t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
 
 
 sudo nano /etc/nginx/sites-available/default
