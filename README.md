@@ -15,13 +15,13 @@ cd /home/geth
 
 # Download The GETH
 ```
-wget https://github.com/binance-chain/bsc/releases/download/v1.1.1/geth_linux
+wget https://github.com/binance-chain/bsc/releases/download/v1.1.2/geth_linux
 chmod +x geth_linux
 ```
 
 # Create `start.sh` and `console.sh`
 ```
-echo "./geth_linux --config ./config.toml --datadir ./mainnet --cache 18000 --rpc.allow-unprotected-txs --txlookuplimit 0 --http --maxpeers 100 --ws --syncmode=snap --snapshot=false" > start.sh
+echo "./geth_linux --config ./config.toml --datadir ./mainnet  --port 5432  --rpc --rpcaddr "127.0.0.1"  --rpcport "7005" --rpcapi "personal,db,eth,net,web3" --allow-insecure-unlock" > start.sh
 chmod +x start.sh
 
 echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
@@ -38,7 +38,7 @@ apt install unzip
 
 # Download Mainnet Configs
 ```
-wget https://github.com/binance-chain/bsc/releases/download/v1.1.1/mainnet.zip
+wget https://github.com/binance-chain/bsc/releases/download/v1.1.2/mainnet.zip
 unzip mainnet.zip
 ./geth_linux --datadir mainnet init genesis.json
 ```
