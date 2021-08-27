@@ -26,6 +26,9 @@ chmod +x start.sh
 
 echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
 chmod +x console.sh
+
+echo "./geth_linux --datadir ./mainnet "$@"" > cli.sh
+chmod +x cli.sh
 ```
 
 # Install Unzip
@@ -79,4 +82,12 @@ tail -f /home/geth/mainnet/bsc.log
 # Check info of node
 ```
 ./console.sh
+```
+# CLI Usages
+
+```
+
+./cli.sh account new
+./cli.sh account list
+
 ```
