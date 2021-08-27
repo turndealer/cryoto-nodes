@@ -91,3 +91,71 @@ tail -f /home/geth/mainnet/bsc.log
 ./cli.sh account list
 
 ```
+# Securing Node
+```
+Create alpha numeric strings from here
+1. 24 chars long  nginx username
+2. 32 chars long  nginx password
+3. 32 chars long first account password
+
+nginx user:DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ
+nginx Pass:t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
+first account pass:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+```
+# Creating First account
+```
+./cli.sh account new
+
+prompt will ask
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Enter your first account pass
+Password:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+Repeat Password:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+
+Result
+Public address of the key:   0xF124634534656355456453665436544365
+Path of the secret key file: mainnet/keystore/UTC--2021-08-27T06-46-38.255700718Z--F124634534656355456453665436544365
+
+- You can share your public address with anyone. Others need it to interact with you.
+- You must NEVER share the secret key with anyone! The key controls access to your funds!
+- You must BACKUP your key file! Without the key, it's impossible to access account funds!
+- You must REMEMBER your password! Without the password, it's impossible to decrypt the key!
+```
+# Nginx Security Installation
+```
+Installing nginx on Ubuntu 20 ref: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts
+sudo apt update
+sudo apt install nginx
+systemctl status nginx
+
+@todo adjust firewall to allow ip of nginx from only your reliable ip
+
+sudo sh -c "echo -n 'DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ:' >> /etc/nginx/.htpasswd"
+
+
+sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+
+password for nginx=RMXyS4pBHGNtWY-t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
+
+
+sudo nano /etc/nginx/sites-available/default
+
+
+server {
+ listen 9150;
+ listen [::]:9150;
+ # ADDED THESE TWO LINES FOR AUTHENTICATION
+auth_basic "No Access";
+auth_basic_user_file /etc/nginx/.htpasswd; 
+ #server_name example.com;
+ location / {
+      proxy_pass http://localhost:7005/;
+      proxy_set_header Host $host;
+ }
+}
+
+
+
+
+sudo service nginx reload
+
