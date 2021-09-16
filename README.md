@@ -106,6 +106,15 @@ first account pass:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
 ```
 ./cli.sh account new
 
+Or 
+
+./console.sh
+
+then type 
+
+ personal.newAccount()
+passPhrase:
+Repeast Password:
 prompt will ask
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Enter your first account pass
@@ -123,7 +132,7 @@ Path of the secret key file: mainnet/keystore/UTC--2021-08-27T06-46-38.255700718
 ```
 # Nginx Security Installation
 ```
-Installing nginx on Ubuntu 20 ref: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts
+Installing nginx on Ubuntu 20 ref: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
 sudo apt update
 sudo apt install nginx
 systemctl status nginx
