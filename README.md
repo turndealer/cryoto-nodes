@@ -136,7 +136,7 @@ Cross Checking if password you entered is correct [its must to avoid loosing fun
 Unlock account 0xF124634534656355456453665436544365
 Passphrase:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
 true
-```
+
 When it says true then it means password is correct .
 
 @todo 
