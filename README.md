@@ -130,6 +130,22 @@ Path of the secret key file: mainnet/keystore/UTC--2021-08-27T06-46-38.255700718
 - You must BACKUP your key file! Without the key, it's impossible to access account funds!
 - You must REMEMBER your password! Without the password, it's impossible to decrypt the key!
 ```
+Cross Checking if password you entered is correct [its must to avoid loosing funds]
+
+> personal.unlockAccount("0xF124634534656355456453665436544365")
+Unlock account 0xF124634534656355456453665436544365
+Passphrase:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+true
+```
+When it says true then it means password is correct .
+
+@todo 
+Now backup following file [This is a json file ]
+
+mainnet/keystore/UTC--2021-08-27T06-46-38.255700718Z--F124634534656355456453665436544365
+
+and save your password for first account somewhere same.
+
 # Nginx Security Installation
 ```
 Installing nginx on Ubuntu 20 ref: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
