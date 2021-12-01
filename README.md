@@ -15,7 +15,7 @@ cd /home/geth
 
 # Download The GETH
 ```
-wget https://github.com/binance-chain/bsc/releases/download/v1.1.2/geth_linux
+wget https://github.com/binance-chain/bsc/releases/download/v1.1.6/geth_linux
 chmod +x geth_linux
 ```
 
@@ -38,7 +38,7 @@ apt install unzip
 
 # Download Mainnet Configs
 ```
-wget https://github.com/binance-chain/bsc/releases/download/v1.1.2/mainnet.zip
+wget https://github.com/binance-chain/bsc/releases/download/v1.1.6/mainnet.zip
 unzip mainnet.zip
 ./geth_linux --datadir mainnet init genesis.json
 ```
