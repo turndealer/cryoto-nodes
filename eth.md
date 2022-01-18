@@ -64,7 +64,12 @@ chown -R geth.geth /home/geth/*
 systemctl enable geth
 systemctl start geth
 ```
+# Check live logs of geth
 
+```
+journalctl -f -u geth
+
+```
 
 # Check info of node
 ```
