@@ -1,4 +1,4 @@
-# Become Root
+ma# Become Root
 ```
 sudo su
 ```
@@ -23,13 +23,13 @@ chmod +x geth
 
 # Create `start.sh` and `console.sh`
 ```
-echo "./geth --config ./config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,db,eth,net,web3" --allow-insecure-unlock" --syncmode "snap" > start.sh
+echo "./geth --config ./config.toml --datadir /home/geth/mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,db,eth,net,web3" --allow-insecure-unlock" --syncmode "snap" > start.sh
 chmod +x start.sh
 
-echo "./geth attach ipc:mainnet/geth.ipc" > console.sh
+echo "./geth attach ipc:/home/geth/mainnet/geth.ipc" > console.sh
 chmod +x console.sh
 
-echo "./geth --datadir ./mainnet "$@"" > cli.sh
+echo "./geth --datadir /home/geth/mainnet "$@"" > cli.sh
 chmod +x cli.sh
 ```
 
