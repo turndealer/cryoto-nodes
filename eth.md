@@ -16,14 +16,14 @@ cd /home/geth
 # Download The GETH
 ```
 wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be800ff.tar.gz
-untar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
+tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
 mv geth-linux-amd64-1.10.15-8be800ff/geth /home/geth/
 chmod +x geth
 ```
 
 # Create `start.sh` and `console.sh`
 ```
-echo "./geth --config ./config.toml --datadir ./mainnet  --port 5432  --rpc --rpcaddr "127.0.0.1"  --rpcport "7005" --rpcapi "personal,db,eth,net,web3" --allow-insecure-unlock" --syncmode "span" > start.sh
+echo "./geth --config ./config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,db,eth,net,web3" --allow-insecure-unlock" --syncmode "snap" > start.sh
 chmod +x start.sh
 
 echo "./geth attach ipc:mainnet/geth.ipc" > console.sh
