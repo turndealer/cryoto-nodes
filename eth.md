@@ -32,6 +32,36 @@ chmod +x console.sh
 
 echo "./geth --datadir /home/geth/mainnet "$@"" > cli.sh
 chmod +x cli.sh
+
+
+# Additional Layer of security
+
+You can turn off syncing by --maxpeers 0 to start.sh
+```
+./geth --config ./config.toml --datadir /home/geth/mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "snap" --maxpeers 0
+```
+Also on geth server you can use ufw firewall
+
+and allow following port 22, 9150
+```
+sudo ufw status 
+```
+[If inactive]
+```
+sudo ufw enable
+```
+Enabling ports
+```
+sudo ufw allow 22
+sudo ufw allow from 123.456.789.000 to any port 9150
+```
+
+Here replace your IP which will connect to geth with above IP 123.456.789.000
+
+
+
+
+
 ```
 
 # Setup systemd
