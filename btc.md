@@ -1,14 +1,16 @@
 #Gathering Information
+```
 NODEIP:IP ADDRESS of your Bitcoin NODE 
 NODEUSER:Username of your Bitcoin NODE  usually root
 NODEPWD:Password of your Bitcoin NODE for ssh
 ACCESS_IP: IP address which will access your Bitcoin node 
-
+```
 #Choosing Information for RPC
+```
 RPCUser: Choose RPC Username [Alpha Numeric] atleast 16 chars
 RPCPass: Choose RPC Password[Alpha Numeric] Keep strong 32 chars
 RPCPort:Choose uncommon port from 1000 to 65000 example 5351
-
+```
 
 Now login to your NODEIP with ssh root@NODEIP 
 
