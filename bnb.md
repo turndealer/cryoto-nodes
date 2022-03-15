@@ -21,7 +21,7 @@ chmod +x geth_linux
 
 # Create `start.sh` and `console.sh`
 ```
-echo "./geth_linux --config ./mainnet/config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,db,eth,net,web3" --allow-insecure-unlock" --syncmode "light" > start.sh
+echo "./geth_linux --config ./mainnet/config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "light" > start.sh
 chmod +x start.sh
 
 echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
