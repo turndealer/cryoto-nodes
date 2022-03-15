@@ -118,8 +118,8 @@ Repeast Password:
 prompt will ask
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Enter your first account pass
-Password:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
-Repeat Password:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+Password:MAINACCOUNTPASS
+Repeat Password:MAINACCOUNTPASS
 
 Result
 Public address of the key:   0xF124634534656355456453665436544365
@@ -134,7 +134,7 @@ Cross Checking if password you entered is correct [its must to avoid loosing fun
 
 > personal.unlockAccount("0xF124634534656355456453665436544365")
 Unlock account 0xF124634534656355456453665436544365
-Passphrase:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+Passphrase:MAINACCOUNTPASS
 true
 
 When it says true then it means password is correct .
