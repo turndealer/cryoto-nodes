@@ -93,7 +93,7 @@ tail -f /home/geth/mainnet/bsc.log
 ```
 # Securing Node
 ```
-Create alpha numeric strings from here
+Create alpha numeric strings from here  [Do not use Special chars Please]
 1. 24 chars long  nginx username
 2. 32 chars long  nginx password
 3. 32 chars long first account password
