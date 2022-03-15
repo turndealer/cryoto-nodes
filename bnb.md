@@ -98,9 +98,9 @@ Create alpha numeric strings from here  [Do not use Special chars Please]
 2. 32 chars long  nginx password
 3. 32 chars long first account password
 
-nginx user:DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ
-nginx Pass:t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
-first account pass:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
+NGINXUSER:DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ
+NGINXPASS:t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
+MAINACCOUNTPASS:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
 ```
 # Creating First account
 ```
@@ -155,12 +155,12 @@ systemctl status nginx
 
 @todo adjust firewall to allow ip of nginx from only your reliable ip
 
-sudo sh -c "echo -n 'DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ:' >> /etc/nginx/.htpasswd"
+sudo sh -c "echo -n 'NGINXUSER:' >> /etc/nginx/.htpasswd"
 
 
 sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
 
-password for nginx=t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
+password for nginx=NGINXPASS
 
 
 sudo nano /etc/nginx/sites-available/default
