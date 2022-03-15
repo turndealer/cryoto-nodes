@@ -23,7 +23,7 @@ chmod +x geth
 
 # Create `start.sh` and `console.sh`
 ```
-./geth dumpconfig > config.tml
+./geth dumpconfig > config.toml
 echo "./geth --config ./config.toml --datadir /home/geth/mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "snap" > start.sh
 chmod +x start.sh
 
