@@ -15,9 +15,9 @@ cd /home/geth
 
 # Download The GETH
 ```
-wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be800ff.tar.gz
-tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
-mv geth-linux-amd64-1.10.15-8be800ff/geth /home/geth/
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.17-25c9b49f.tar.gz
+tar -xvf geth-linux-amd64-1.10.17-25c9b49f.tar.gz
+mv geth-linux-amd64-1.10.17-25c9b49f/geth /home/geth/
 chmod +x geth
 ```
 
