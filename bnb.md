@@ -77,6 +77,7 @@ systemctl start geth
 # Show logs
 ```
 tail -f /home/geth/mainnet/bsc.log
+journalctl -f -u geth
 ```
 
 # Check info of node
