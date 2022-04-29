@@ -21,7 +21,7 @@ chmod +x geth_linux
 
 # Create `start.sh` and `console.sh`
 ```
-echo "./geth_linux --config ./mainnet/config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "light" > start.sh
+echo "./geth_linux --config ./mainnet/config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "light" --maxpeers 0> start.sh
 chmod +x start.sh
 
 echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
@@ -104,20 +104,21 @@ MAINACCOUNTPASS:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
 ```
 # Creating First account
 ```
-./cli.sh account new
-
-Or 
 
 ./console.sh
 
 then type 
 
- personal.newAccount()
+personal.newAccount()
+It would ask for 
+
 passPhrase:
 Repeast Password:
-prompt will ask
+
+
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Enter your first account pass
+
 Password:MAINACCOUNTPASS
 Repeat Password:MAINACCOUNTPASS
 
@@ -131,15 +132,14 @@ Path of the secret key file: mainnet/keystore/UTC--2021-08-27T06-46-38.255700718
 - You must REMEMBER your password! Without the password, it's impossible to decrypt the key!
 ```
 Cross Checking if password you entered is correct [its must to avoid loosing funds]
-
+```
 > personal.unlockAccount("0xF124634534656355456453665436544365")
 Unlock account 0xF124634534656355456453665436544365
 Passphrase:MAINACCOUNTPASS
 true
-
+```
 When it says true then it means password is correct .
 
-@todo 
 Now backup following file [This is a json file ]
 
 mainnet/keystore/UTC--2021-08-27T06-46-38.255700718Z--F124634534656355456453665436544365
@@ -161,8 +161,8 @@ sudo sh -c "echo -n 'NGINXUSER:' >> /etc/nginx/.htpasswd"
 sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
 
 password for nginx=NGINXPASS
-
-
+ 
+#sudo rm /etc/nginx/sites-available/default
 sudo nano /etc/nginx/sites-available/default
 
 
