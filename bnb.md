@@ -38,7 +38,7 @@ apt install unzip
 
 # Download Mainnet Configs
 ```
-wget https://github.com/binance-chain/bsc/releases/download/v1.1.9/mainnet.zip
+wget https://github.com/binance-chain/bsc/releases/download/v1.1.11/mainnet.zip
 unzip mainnet.zip
 ./geth_linux --datadir mainnet init mainnet/genesis.json
 ```
