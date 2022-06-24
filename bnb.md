@@ -40,7 +40,7 @@ apt install unzip
 ```
 wget https://github.com/bnb-chain/bsc/releases/download/v1.1.11/mainnet.zip
 unzip mainnet.zip
-./geth_linux --datadir mainnet init mainnet/genesis.json
+./geth_linux --datadir mainnet init genesis.json
 ```
 
 # Setup systemd
