@@ -19,18 +19,6 @@ wget https://github.com/bnb-chain/bsc/releases/download/v1.1.11/geth_linux
 chmod +x geth_linux
 ```
 
-# Create `start.sh` and `console.sh`
-```
-echo "./geth_linux --config ./mainnet/config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "light" --maxpeers 0> start.sh
-chmod +x start.sh
-
-echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
-chmod +x console.sh
-
-echo "./geth_linux --datadir ./mainnet "$@"" > cli.sh
-chmod +x cli.sh
-```
-
 # Install Unzip
 ```
 apt install unzip
@@ -41,6 +29,17 @@ apt install unzip
 wget https://github.com/bnb-chain/bsc/releases/download/v1.1.11/mainnet.zip
 unzip mainnet.zip
 ./geth_linux --datadir mainnet init genesis.json
+```
+# Create `start.sh` and `console.sh`
+```
+echo "./geth_linux --config ./config.toml --datadir ./mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "light" --maxpeers 0> start.sh
+chmod +x start.sh
+
+echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
+chmod +x console.sh
+
+echo "./geth_linux --datadir ./mainnet "$@"" > cli.sh
+chmod +x cli.sh
 ```
 
 # Setup systemd
