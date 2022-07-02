@@ -51,7 +51,7 @@ Then paste the following;
 
 ```
 [Unit]
-Description=BSC Full Node
+Description=BSC NoSync Node [Does not connect with network of BNB]
 
 [Service]
 User=geth
