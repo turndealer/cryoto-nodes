@@ -30,11 +30,6 @@ echo "./ken --config ./config.toml --datadir /home/geth/mainnet  --port 5432  --
 > start.sh
 chmod +x start.sh
 
-echo "./ken attach ipc:mainnet/geth.ipc" > console.sh
-chmod +x console.sh
-
-echo "./ken --datadir ./mainnet "$@"" > cli.sh
-chmod +x cli.sh
 ```
 
 # Setup systemd
@@ -74,17 +69,6 @@ tail -f /home/geth/mainnet/bsc.log
 journalctl -f -u geth
 ```
 
-# Check info of node
-```
-./console.sh
-```
-# CLI Usages
-
-```
-
-./cli.sh account new
-./cli.sh account list
-
 ```
 # Securing Node
 ```
@@ -100,11 +84,8 @@ MAINACCOUNTPASS:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
 # Creating First account
 ```
 
-./console.sh
+ ./ken --datadir ./mainnet account new
 
-then type 
-
-personal.newAccount()
 It would ask for 
 
 passPhrase:
