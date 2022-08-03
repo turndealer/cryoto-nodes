@@ -69,7 +69,6 @@ tail -f /home/geth/mainnet/bsc.log
 journalctl -f -u geth
 ```
 
-```
 # Securing Node
 ```
 Create alpha numeric strings from here  [Do not use Special chars Please]
