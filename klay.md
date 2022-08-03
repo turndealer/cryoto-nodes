@@ -13,13 +13,16 @@ sudo useradd -m geth
 cd /home/geth
 ```
 
-# Download The GETH
+# Download The Ken CLi
 ```
 wget https://packages.klaytn.net/klaytn/v1.9.0/ken-v1.9.0-0-linux-amd64.tar.gz
 tar -xvf ken-v1.9.0-0-linux-amd64.tar.gz
 chmod +x ken
 ```
-
+# Create config.toml 
+```
+./ken dumpconfig >config.toml
+```
 
 # Create `start.sh` and `console.sh`
 ```
