@@ -125,21 +125,20 @@ and save your password for first account somewhere same.
 
 # Nginx Security Installation
 ```
-Installing nginx on Ubuntu 20 ref: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
 sudo apt update
 sudo apt install nginx
 systemctl status nginx
-
+```
 @todo adjust firewall to allow ip of nginx from only your reliable ip
-
-sudo sh -c "echo -n 'DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ:' >> /etc/nginx/.htpasswd"
+```
+sudo sh -c "echo -n 'NGINXUSER:' >> /etc/nginx/.htpasswd"
 
 
 sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
-
-password for nginx=t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
-
-
+```
+password for nginx=NGINXPASS
+``` 
+#sudo rm /etc/nginx/sites-available/default
 sudo nano /etc/nginx/sites-available/default
 
 
@@ -155,9 +154,8 @@ auth_basic_user_file /etc/nginx/.htpasswd;
       proxy_set_header Host $host;
  }
 }
-
+```
 
 
 
 sudo service nginx reload
-
