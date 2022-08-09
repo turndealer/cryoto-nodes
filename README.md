@@ -5,3 +5,4 @@ BSC/BNB Node , ETH Ethereum Node , KLAY Node ,BTC node installation for [Cryptoc
 ```
 Connect your Cryptocurrency Exchange  or Wallet to own Private Node with full security and access exclusive to your exchange /wallet only
 ```
+#![BNB NODE SETUP](bnb.md "BNB NODE SETUP")
