@@ -53,7 +53,8 @@ sudo ufw allow from 123.456.789.000 to any port 9150
 ```
 
 Here replace your IP which will connect to geth with above IP 123.456.789.000
-[If inactive]
+
+#Enabliging ufw [If inactive]
 ```
 sudo ufw enable
 ```
