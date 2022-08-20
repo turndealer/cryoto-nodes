@@ -36,7 +36,7 @@ testnet=0
 server=1
 prune=550
 addresstype=p2sh-segwit
-daemon=1
+#daemon=1
 ```
 This now becomes your command 
 bitcoind -server -rpcbind=0.0.0.0 -rpcport=RPCPort -rpcallowip=ACCESS_IP -rpcuser=RPCUser -rpcpassword=RPCPass -prune=550 -addresstype=p2sh-segwit
@@ -50,10 +50,10 @@ sudo nano bitcoin.conf
 Next enter following information
 ```
 [program:bitcoin]
-command=/usr/local/bin/bitcoind
-autostart=true  
-autorestart=true  
-stderr_logfile=/var/log/supervisor/bitcoin.err.log  
+command=/usr/local/bin/bitcoind -datadir=/root/.bitcoin -conf=/root/.bitcoin/bitcoin.conf
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/supervisor/bitcoin.err.log
 stdout_logfile=/var/log/supervisor/bitcoin.out.log
 ```
 Now Save it and run following command
@@ -65,3 +65,15 @@ To check Log use command
 supervisorctl
 tail -f bitcoin
 ```
+
+#Testing Connection
+```
+curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://NODEUSER:NODEPWD@127.0.0.1:8332/
+```
+If above response comes empty then you can use verbose to debug
+
+```
+curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://NODEUSER:NODEPWD@127.0.0.1:8332/ -v
+```
+```
+
