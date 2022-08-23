@@ -198,8 +198,8 @@ auth_basic_user_file /etc/nginx/.htpasswd;
 }
 ```
 
-Run 2 more commands to check if everything is good.
-``
+#Run 2 more commands to check if everything is good.
+```
 sudo service nginx reload
 sudo service nginx status
-``
+```
