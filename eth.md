@@ -196,9 +196,10 @@ auth_basic_user_file /etc/nginx/.htpasswd;
       proxy_set_header Host $host;
  }
 }
+```
 
-
-
-
+Run 2 more commands to check if everything is good.
+``
 sudo service nginx reload
-
+sudo service nginx status
+``
