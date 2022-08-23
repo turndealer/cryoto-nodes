@@ -75,5 +75,10 @@ If above response comes empty then you can use verbose to debug
 ```
 curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://NODEUSER:NODEPWD@127.0.0.1:8332/ -v
 ```
+
+#creating a wallet
 ```
+ bitcoin-cli createwallet wallet
+```
+
 
