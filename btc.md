@@ -3,13 +3,13 @@
 NODEIP:IP ADDRESS of your Bitcoin NODE 
 NODEUSER:Username of your Bitcoin NODE  usually root
 NODEPWD:Password of your Bitcoin NODE for ssh
-ACCESS_IP: IP address which will access your Bitcoin node 
 ```
 #Choosing Information for RPC
 ```
 RPCUser: Choose RPC Username [Alpha Numeric] atleast 16 chars
 RPCPass: Choose RPC Password[Alpha Numeric] Keep strong 32 chars
 RPCPort:Choose uncommon port from 1000 to 65000 example 5351
+ACCESS_IP: IP address which will access your Bitcoin node [Exchange IP]
 ```
 
 Now login to your NODEIP with ssh root@NODEIP 
@@ -25,12 +25,14 @@ Run bitcoind and stop with ctrl+c
 ```
 cd /root/.bitcoin/
 sudo nano bitcoin.conf
-
-rpcuser=RPCUser
-rpcpassword=RPCPass
+```
+and Paste below init [Make sure to replace variables
+```
+rpcuser=[RPCUser]
+rpcpassword=[RPCPass]
 rpcport=RPCPort
 rpctimeout=5
-rpcallowip=ACCESS_IP
+rpcallowip=[ACCESS_IP]
 rpcbind=0.0.0.0
 testnet=0
 server=1
@@ -44,6 +46,9 @@ bitcoind -server -rpcbind=0.0.0.0 -rpcport=RPCPort -rpcallowip=ACCESS_IP -rpcuse
 or You can supervisor to run it 
 ```
 sudo apt-get install supervisor
+```
+After above use following
+```
 cd /etc/supervisor/conf.d/
 sudo nano bitcoin.conf
 ```
@@ -68,17 +73,22 @@ tail -f bitcoin
 
 #Testing Connection
 ```
-curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://NODEUSER:NODEPWD@127.0.0.1:8332/
+curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://RPCUser:RPCPass@127.0.0.1:RPCPort/
 ```
 If above response comes empty then you can use verbose to debug
 
 ```
-curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://NODEUSER:NODEPWD@127.0.0.1:8332/ -v
+curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://RPCUser:RPCPass@127.0.0.1:RPCPort/ -v
 ```
 
 #creating a wallet
 ```
  bitcoin-cli createwallet wallet
 ```
+#Check if wallet is connected 
+```
+bitcoin-cli getwalletinfo
+```
+
 
 
