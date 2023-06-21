@@ -23,7 +23,10 @@ sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-22.0/bin/*
 
 Run bitcoind and stop with ctrl+c
 ```
+bitcoin-cli createwallet "default"
+
 cd /root/.bitcoin/
+
 sudo nano bitcoin.conf
 ```
 and Paste below init [Make sure to replace variables
@@ -38,6 +41,7 @@ testnet=0
 server=1
 prune=550
 addresstype=p2sh-segwit
+wallet=default
 #daemon=1
 ```
 This now becomes your command 
