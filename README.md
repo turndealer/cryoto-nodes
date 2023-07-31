@@ -1,5 +1,5 @@
 
-# cryoto-nodes
+# crypto-nodes
 
 - BSC/BNB Node 
 - ETH Ethereum Node 
