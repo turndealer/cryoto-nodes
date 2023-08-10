@@ -1,18 +1,17 @@
-
-# crypto-nodes
+# Crypto Nodes Setup Guide
 
 - BSC/BNB Node 
 - ETH Ethereum Node 
 - KLAY Node 
-- BTC node installation 
-- Substrate [PolkaDot Node setup with Custom RPC tool kit, Deposit Detection and Processing ]
-- for [Cryptocurrency Exchange script](https://codono.com) or [crypto wallet script](https://codono.com) using GETH or Repective node/daemon binaries.
-#[Crypto Node Setup Services](https://codono.com)
-```
-Connect your Cryptocurrency Exchange  or Wallet to own Private Node with full security and access exclusive to your exchange /wallet only
-```
-- [BNB NODE SETUP](bnb.md)
-- [ETH NODE SETUP](eth.md)
-- [BTC NODE SETUP](btc.md)
-- [KLAY NODE SETUP](klay.md)
-- [PolkaDot Substrate NODE SETUP](polkadot-substrate.md)
+- BTC Node Installation 
+- Substrate (PolkaDot Node Setup with Custom RPC Toolkit, Deposit Detection, and Processing)
+- For [Cryptocurrency Exchange Script](https://codono.com) or [Crypto Wallet Script](https://codono.com) using GETH or Respective Node/Daemon Binaries.
+
+## [Crypto Node Setup Services](https://codono.com)
+Connect your Cryptocurrency Exchange or Wallet to your own Private Node with full security and exclusive access.
+
+- [BNB Node Setup](bnb.md)
+- [ETH Node Setup](eth.md)
+- [BTC Node Setup](btc.md)
+- [KLAY Node Setup](klay.md)
+- [PolkaDot Substrate Node Setup](polkadot-substrate.md)
