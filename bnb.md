@@ -1,53 +1,55 @@
+
+
+```markdown
 # Become Root
-```
+```bash
 sudo su
 ```
 
 # Create GETH User
-```
+```bash
 sudo useradd -m geth
 ```
 
 # Switch To The New User's Home
-```
+```bash
 cd /home/geth
 ```
 
 # Download The GETH
-```
+```bash
 wget https://github.com/bnb-chain/bsc/releases/download/v1.1.11/geth_linux
 chmod +x geth_linux
 ```
 
 # Install Unzip
-```
+```bash
 apt install unzip
 ```
 
 # Download Mainnet Configs
-```
+```bash
 wget https://github.com/bnb-chain/bsc/releases/download/v1.1.11/mainnet.zip
 unzip mainnet.zip
 ./geth_linux --datadir mainnet init genesis.json
 ```
+
 # Create `start.sh` and `console.sh`
-```
-echo "./geth_linux --config ./config.toml --datadir /home/geth/mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock" --syncmode "snap" --maxpeers "0"> start.sh
+```bash
+echo './geth_linux --config ./config.toml --datadir /home/geth/mainnet  --port 5432  --http --http.addr "127.0.0.1"  --http.port "7005" --http.api "personal,eth,net,web3" --allow-insecure-unlock --syncmode "snap" --maxpeers "0"' > start.sh
 chmod +x start.sh
 
-echo "./geth_linux attach ipc:mainnet/geth.ipc" > console.sh
+echo './geth_linux attach ipc:mainnet/geth.ipc' > console.sh
 chmod +x console.sh
 
-echo "./geth_linux --datadir ./mainnet "$@"" > cli.sh
+echo './geth_linux --datadir ./mainnet "$@"' > cli.sh
 chmod +x cli.sh
 ```
 
 # Setup systemd
-```
+```bash
 sudo nano /lib/systemd/system/geth.service
 ```
-
-Then paste the following;
 
 ```
 [Unit]
@@ -65,32 +67,31 @@ RestartSec=5
 WantedBy=default.target
 ```
 
-After that;
+After that:
 
-```
+```bash
 chown -R geth.geth /home/geth/*
 systemctl enable geth
 systemctl start geth
 ```
 
 # Show logs
-```
+```bash
 tail -f /home/geth/mainnet/bsc.log
 journalctl -f -u geth
 ```
 
 # Check info of node
-```
+```bash
 ./console.sh
 ```
+
 # CLI Usages
-
-```
-
+```bash
 ./cli.sh account new
 ./cli.sh account list
-
 ```
+
 # Securing Node
 ```
 Create alpha numeric strings from here  [Do not use Special chars Please]
@@ -102,9 +103,9 @@ NGINXUSER:DUJvhuHoOcyI3IGMzappo1LTkV1v7FzJ
 NGINXPASS:t2h6G3g4YTc7DS93ullowWr7XPP9ZJBZ
 MAINACCOUNTPASS:44ufj5MgOmKTH94ZZQ3WOmSoxkU4zqaN
 ```
+
 # Creating First account
 ```
-
 ./console.sh
 
 then type 
@@ -114,7 +115,6 @@ It would ask for
 
 passPhrase:
 Repeast Password:
-
 
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Enter your first account pass
@@ -131,53 +131,64 @@ Path of the secret key file: mainnet/keystore/UTC--2021-08-27T06-46-38.255700718
 - You must BACKUP your key file! Without the key, it's impossible to access account funds!
 - You must REMEMBER your password! Without the password, it's impossible to decrypt the key!
 ```
-Cross Checking if password you entered is correct [its must to avoid loosing funds]
+
+# Cross Checking if password you entered is correct [its must to avoid losing funds]
 ```
 > personal.unlockAccount("0xF124634534656355456453665436544365")
 Unlock account 0xF124634534656355456453665436544365
 Passphrase:MAINACCOUNTPASS
 true
 ```
-When it says true then it means password is correct .
+When it says true, then it means the password is correct.
 
-Now backup following file [This is a json file ]
-
+Now backup the following file [This is a JSON file]:
+```
 mainnet/keystore/UTC--2021-08-27T06-46-38.255700718Z--F124634534656355456453665436544365
+```
 
-and save your password for first account somewhere same.
+and save your password for the first account somewhere safe.
 
 # Nginx Security Installation
 Installing nginx on Ubuntu 20 ref: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
-```
+
+```bash
 sudo apt update
 sudo apt install nginx
 systemctl status nginx
 ```
-@todo adjust firewall to allow ip of nginx from only your reliable ip
-```
-sudo sh -c "echo -n 'NGINXUSER:' >> /etc/nginx/.htpasswd"
 
+Adjust the firewall to allow only the IP of nginx from your reliable IP.
+
+```bash
+sudo sh -c "echo -n 'NGINXUSER:' >> /etc/nginx/.htpasswd"
 sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
 ```
-password for nginx=NGINXPASS
-``` 
-#sudo rm /etc/nginx/sites-available/default
+
+Password for nginx = NGINXPASS
+
+Edit nginx configuration:
+
+```bash
 sudo nano /etc/nginx/sites-available/default
 ```
+
+Add the following configuration:
+
 ```
 server {
  listen 9150;
  listen [::]:9150;
- # ADDED THESE TWO LINES FOR AUTHENTICATION
-auth_basic "No Access";
-auth_basic_user_file /etc/nginx/.htpasswd; 
- #server_name example.com;
+ auth_basic "No Access";
+ auth_basic_user_file /etc/nginx/.htpasswd;
  location / {
       proxy_pass http://localhost:7005/;
       proxy_set_header Host $host;
  }
 }
 ```
-```
+
+Reload nginx:
+
+```bash
 sudo service nginx reload
 ```
