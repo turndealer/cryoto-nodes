@@ -1,3 +1,7 @@
+This has been archived , Please visit 
+
+[Crypto Nodes Setup] (https://github.com/CodonoTeam/cryptocurrency-exchange-script/)
+
 # Crypto Nodes Setup Guide
 
 - BSC/BNB Node 
